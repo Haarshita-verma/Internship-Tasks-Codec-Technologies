@@ -1,29 +1,179 @@
-# Market Basket Analysis
 
-Data Analytics Internship · Project 06
+# Data Science & AI/ML Internship Projects
 
-## Run locally
+> Two Projects | One README | Practical Data Analysis and Machine Learning
 
-From this folder, create a Python 3 environment and run:
+This repository contains two internship projects:
+1. Customer Churn Prediction
+2. Market Basket Analysis
+
+---
+
+## 🧭 Project Overview
+
+| Project | Goal | Techniques |
+|---|---|---|
+| Customer Churn Prediction | Identify customers who may leave a telecom service | EDA, Data Preprocessing, Logistic Regression, Random Forest |
+| Market Basket Analysis | Discover products frequently purchased together | Data Cleaning, Frequent Itemsets, Association Rules, Support, Confidence, Lift |
+
+---
+
+## 🔄 Project Workflow
+
+```mermaid
+flowchart TD
+    A[Raw Dataset] --> B[Data Cleaning]
+    B --> C1[Customer Churn Prediction]
+    B --> C2[Market Basket Analysis]
+
+    C1 --> D1[Exploratory Data Analysis]
+    D1 --> E1[Train ML Models]
+    E1 --> F1[Model Evaluation]
+    F1 --> G1[Customer Retention]
+
+    C2 --> D2[Create Product Baskets]
+    D2 --> E2[Find Frequent Items]
+    E2 --> F2[Association Rules]
+    F2 --> G2[Product Recommendations]
+```
+
+---
+
+# 📊 Project 01: Customer Churn Prediction
+
+### Objective
+To predict which telecom customers are likely to leave the company using machine learning techniques.
+
+### What the Project Does
+- Explores customer churn patterns.
+- Performs data cleaning and preprocessing.
+- Uses an 80/20 train-test split.
+- Applies Logistic Regression and Random Forest.
+- Compares machine learning models.
+- Evaluates models using Accuracy, Precision, Recall and ROC-AUC.
+
+### Key Findings
+
+Dataset contains 7,043 customers, of whom 1,869 churned.
+
+| Model | Accuracy | Recall | Precision | ROC-AUC |
+|---|---:|---:|---:|---:|
+| Majority Baseline | 73.5% | 0% | 0% | 0.500 |
+| Logistic Regression | 80.6% | 55.9% | 65.7% | 0.842 |
+| Random Forest | 79.6% | 49.7% | 65.0% | 0.837 |
+
+### Important Insights
+- Month-to-month contracts show higher churn.
+- Two-year contracts show lower churn.
+- Logistic Regression achieved the best overall reported test metrics.
+- The model can help identify customers who may need retention support.
+
+### Dataset
+IBM Telco Customer Churn Sample Dataset.
+
+---
+
+# 🛒 Project 02: Market Basket Analysis
+
+### Objective
+To identify products that are frequently purchased together using Market Basket Analysis.
+
+### What the Project Does
+- Loads and explores retail transaction data.
+- Performs data cleaning.
+- Removes cancelled transactions and administrative product lines.
+- Creates product baskets using invoice numbers.
+- Identifies frequently purchased product combinations.
+- Generates association rules.
+- Calculates Support, Confidence and Lift.
+
+### Key Findings
+
+| Measure | Result |
+|---|---:|
+| Eligible Invoices | 17,901 |
+| Distinct Product Codes | 3,785 |
+| Frequent Products | 827 |
+| Frequent Product Pairs | 1,041 |
+| Association Rules | 838 |
+
+### Important Insights
+- Jumbo Bag Pink Polkadot and Jumbo Bag Red Retrospot appeared together in 785 baskets.
+- Herb Marker Parsley → Herb Marker Chives showed 82% confidence.
+- Association rules help identify relationships between products.
+
+### Business Applications
+- Product recommendations.
+- Cross-selling strategies.
+- Product placement.
+- Bundle offers.
+- Improving customer shopping experience.
+
+### Dataset
+UCI Online Retail Dataset.
+
+---
+
+# 🧰 Tools & Technologies
+
+- Python
+- Jupyter Notebook
+- Pandas
+- NumPy
+- Matplotlib
+- Scikit-learn
+- Machine Learning
+- Data Visualization
+- Association Rule Mining
+
+---
+
+# ▶️ How to Run the Projects
+
+### 1. Customer Churn Prediction
 
 ```bash
+cd "Customer Churn Prediction"
+python -m pip install -r requirements.txt
+jupyter lab Customer_Churn_Prediction.ipynb
+```
+
+### 2. Market Basket Analysis
+
+```bash
+cd "Market Basket Analysis"
 python -m pip install -r requirements.txt
 jupyter lab Market_Basket_Analysis.ipynb
 ```
 
-The notebook includes executed cells and charts. Use **Run All Cells** to reproduce the analysis.
+Open the notebook and select Run All Cells to execute the analysis.
 
-## Data
+---
 
-Chen, D. (2015). [Online Retail](https://doi.org/10.24432/C5BW33). UCI Machine Learning Repository. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+# ⚠️ Limitations
 
-The bundled `data/uk_retail.csv.gz` was adapted from the original workbook by keeping only United Kingdom rows and the InvoiceNo, StockCode, Description, Quantity and UnitPrice fields. The notebook filters cancelled invoices and administrative lines, then counts each product once per eligible invoice.
+### Customer Churn Prediction
+- Results are based on a sample dataset.
+- Model performance may change with new customer data.
+- Further testing is required before real-world deployment.
 
-## Results
+### Market Basket Analysis
+- Results represent historical purchase patterns.
+- Association does not prove that buying one product causes another purchase.
+- Seasonal trends and product availability can affect results.
 
-- 17,901 eligible invoices yielded 1,041 frequent pairs at a minimum support of 1%.
-- 838 directional rules met the 30% confidence and lift above 1 thresholds.
-- The most frequent pair was **Jumbo Bag Pink Polkadot + Jumbo Bag Red Retrospot**, appearing in 785 baskets (4.39%). Test joint placement to see if it increases add-on purchases.
-- **Herb Marker Parsley → Herb Marker Chives** appeared in 187 baskets, with 82.0% historical confidence and 72.32 lift. Test the targeted recommendation on new orders. High lift can reflect a low overall purchase rate for the suggested product.
+---
 
-The results describe historical purchases at one retailer. Use a controlled test to estimate the effect of an offer on sales or margin.
+# 🎯 Conclusion
+
+These two internship projects demonstrate practical applications of Data Science and Artificial Intelligence.
+
+**Customer Churn Prediction** focuses on predictive analytics and machine learning to identify customers who may leave.
+
+**Market Basket Analysis** focuses on discovering purchasing patterns and relationships between products.
+
+Together, these projects demonstrate skills in data preprocessing, exploratory data analysis, machine learning, data visualization and analytical problem-solving.
+
+---
+
+**Internship Domain:** Data Science & Artificial Intelligence / Machine Learning
